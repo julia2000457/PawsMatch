@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_pet_adoption_ui/firebase/fetch_data.dart';
 import 'package:flutter_pet_adoption_ui/screens/home_screen.dart';
 import 'package:flutter_pet_adoption_ui/firebase/signup.dart';
 
@@ -54,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => FetchData(),
           ),
         );
       });
