@@ -14,36 +14,6 @@ class FetchData extends StatefulWidget {
 class _FetchDataState extends State<FetchData> {
   CollectionReference<Map<String, dynamic>> dbRef =
       FirebaseFirestore.instance.collection('Animals');
-  Widget _buildPetCategory(bool isSelected, String category) {
-    return GestureDetector(
-      onTap: () => print('Selected $category'),
-      child: Container(
-        margin: EdgeInsets.all(10.0),
-        width: 80.0,
-        decoration: BoxDecoration(
-          color: isSelected ? Color(0xFFFD6456) : Color(0xFFF8F2F7),
-          borderRadius: BorderRadius.circular(20.0),
-          border: isSelected
-              ? Border.all(
-                  width: 8.0,
-                  color: Color(0xFFFED8D3),
-                )
-              : null,
-        ),
-        child: Center(
-          child: Text(
-            category,
-            style: TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 14.0,
-              fontWeight: FontWeight.w600,
-              color: isSelected ? Colors.white : Colors.black,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   Widget listItem({required Map<String, dynamic> animals}) {
     return Container(
