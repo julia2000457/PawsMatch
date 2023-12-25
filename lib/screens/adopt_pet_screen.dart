@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pet_adoption_ui/firebase/new_message%5B1%5D.dart';
 import 'package:flutter_pet_adoption_ui/models/pet_model.dart';
-import 'package:flutter_pet_adoption_ui/screens/user_details.dart';
 
 class AdoptPetScreen extends StatefulWidget {
   final Pet pet;
-
   AdoptPetScreen({required this.pet});
-
   @override
   _AdoptPetScreenState createState() => _AdoptPetScreenState();
 }
- PetOwner petOwner = PetOwner(
-    name: 'Julia Doe',
-    profilePicUrl: 'assets/images/ana.jpg' , // Replace with the actual URL
-    location: 'Al Rehab, Egypt',
-    email: 'julia.doe@example.com',
-    phone: '01204186861',
-  );
+
 class _AdoptPetScreenState extends State<AdoptPetScreen> {
   Widget _buildInfoCard(String label, String info) {
     return Container(
@@ -202,10 +194,10 @@ class _AdoptPetScreenState extends State<AdoptPetScreen> {
                 children: <Widget>[
                   ElevatedButton.icon(
                     onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>PetOwnerProfilePage(petOwner: petOwner,),
-                    )),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NewMessage(),
+                        )),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.all(20.0),
                       // ignore: deprecated_member_use

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_pet_adoption_ui/firebase/chat_messages%5B1%5D.dart';
 import 'package:flutter_pet_adoption_ui/firebase/pet_details.dart';
 import 'package:flutter_pet_adoption_ui/models/pet_model.dart';
+import 'package:flutter_pet_adoption_ui/screens/adopt_pet_screen.dart';
 //import 'package:flutter_firebase_series/screens/update_record.dart';
 
 class FetchData extends StatefulWidget {
@@ -17,143 +19,74 @@ class _FetchDataState extends State<FetchData> {
 
   Widget listItem({required Map<String, dynamic> animals}) {
     return Container(
-      margin: const EdgeInsets.all(10),
-      padding: EdgeInsets.only(left: 40.0, bottom: 30.0, right: 40.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Hero(
-            tag: animals.keys,
-            child: Container(
-              width: double.infinity,
-              height: 250.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20.0),
-                  topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(pets[1].imageUrl),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(12.0, 12.0, 40.0, 0.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  animals['pet_name'],
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.favorite_border),
-                  iconSize: 30.0,
-                  color: Color(0xFFFD6456),
-                  onPressed: () => print('Favorite ${animals}'),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(12.0, 0.0, 40.0, 12.0),
-            child: Text(
-              animals['description'].toString(),
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 16.0,
-                color: Color.fromARGB(255, 0, 0, 0),
-              ),
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(
-                context,
+        child: GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => InsertData(),
+                  builder: (_) => AdoptPetScreen(pet: pets[0]),
                 ),
               );
             },
-          ),
-        ],
-      ),
-    );
-
-    // color: Colors.amberAccent,
-    // child: Padding(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   crossAxisAlignment: CrossAxisAlignment.start,
-    //   children: [
-    //     Text(
-    //       animals['pet_name'].toString(),
-    //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-    //     ),
-    //     const SizedBox(
-    //       height: 5,
-    //     ),
-    //     Text(
-    //       animals['age'].toString(),
-    //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-    //     ),
-    //     const SizedBox(
-    //       height: 5,
-    //     ),
-    //     Text(
-    //       animals['breed'].toString(),
-    //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-    //     ),
-    // Row(
-    //   mainAxisAlignment: MainAxisAlignment.end,
-    //   crossAxisAlignment: CrossAxisAlignment.center,
-    //   children: [
-    //     GestureDetector(
-    //       onTap: () {
-    //         Navigator.push(
-    //           context,
-    //           MaterialPageRoute(
-    //             builder: (_) => UpdateRecord(animalsKey: animals['key']),
-    //           ),
-    //         );
-    //       },
-    //       child: Row(
-    //         children: [
-    //           Icon(
-    //             Icons.edit,
-    //             color: Theme.of(context).primaryColor,
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //     const SizedBox(
-    //       width: 6,
-    //     ),
-    //     GestureDetector(
-    //       onTap: () {
-    //         dbRef.doc(animals['key']).delete();
-    //       },
-    //       child: Row(
-    //         children: [
-    //           Icon(
-    //             Icons.delete,
-    //             color: Colors.red[700],
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ],
-    // )
-    //     ],
-    //   ),
+            child: Padding(
+              padding: EdgeInsets.only(left: 40.0, bottom: 30.0, right: 40.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Hero(
+                    tag: animals.keys,
+                    child: Container(
+                      width: double.infinity,
+                      height: 250.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0),
+                          bottomLeft: Radius.circular(20.0),
+                          bottomRight: Radius.circular(20.0),
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage(pets[0].imageUrl),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(12.0, 12.0, 40.0, 0.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          animals['pet_name'],
+                          style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.favorite_border),
+                          iconSize: 30.0,
+                          color: Color(0xFFFD6456),
+                          onPressed: () => print('Favorite ${animals}'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(12.0, 0.0, 40.0, 12.0),
+                    child: Text(
+                      animals['breed'].toString(),
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 16.0,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )));
   }
 
   Widget topBar() {
@@ -162,12 +95,11 @@ class _FetchDataState extends State<FetchData> {
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
-        title: Text('Your App Title'),
         background: Container(
           child: ListView(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(left: 40.0, top: 40.0),
+                padding: EdgeInsets.only(left: 50.0, top: 10.0),
                 alignment: Alignment.centerLeft,
                 child: CircleAvatar(
                   child: ClipOval(
@@ -180,7 +112,22 @@ class _FetchDataState extends State<FetchData> {
                   ),
                 ),
               ),
-              SizedBox(height: 40.0),
+              IconButton(
+                padding: EdgeInsets.only(left: 300.0, top: 0.0),
+                icon: Icon(
+                  Icons.message,
+                  color: Color(0xFFFD6456),
+                  size: 40.0,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChatMessages(),
+                    ),
+                  );
+                },
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40.0),
                 child: TextField(
@@ -194,16 +141,17 @@ class _FetchDataState extends State<FetchData> {
                       padding: EdgeInsets.only(right: 30.0),
                       child: Icon(
                         Icons.add_location,
-                        color: const Color.fromARGB(255, 189, 5, 5),
+                        color: Color(0xFFFD6456),
                         size: 40.0,
                       ),
                     ),
                     labelText: 'Location',
                     labelStyle: TextStyle(
-                      fontSize: 20.0,
-                      color: Color.fromARGB(255, 142, 17, 137),
+                      fontFamily: 'Montserrat',
+                      fontSize: 25.0,
+                      color: Color.fromARGB(255, 0, 0, 0),
                     ),
-                    contentPadding: EdgeInsets.only(bottom: 20.0),
+                    contentPadding: EdgeInsets.only(bottom: 0.0),
                   ),
                 ),
               ),
@@ -227,10 +175,6 @@ class _FetchDataState extends State<FetchData> {
                         ),
                       ),
                     ),
-                    _buildPetCategory(false, 'Cats'),
-                    _buildPetCategory(true, 'Dogs'),
-                    _buildPetCategory(false, 'Birds'),
-                    _buildPetCategory(false, 'Other'),
                   ],
                 ),
               ),
@@ -247,7 +191,6 @@ class _FetchDataState extends State<FetchData> {
       body: CustomScrollView(
         slivers: [
           topBar(),
-          // _buildPetCategory(true, 'Dogs'),
           StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
             stream: dbRef.snapshots(),
             builder: (BuildContext context, snapshot) {

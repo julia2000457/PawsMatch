@@ -11,6 +11,9 @@ class Pet {
   final String sex;
   final String color;
   final int id;
+  final String breed;
+  final String category;
+  final String location;
 
   Pet({
     required this.owner,
@@ -21,6 +24,9 @@ class Pet {
     required this.sex,
     required this.color,
     required this.id,
+    required this.breed,
+    required this.location,
+    required this.category,
   });
 }
 
@@ -46,6 +52,7 @@ var owner = Owner(
     bio:
         'A 2 year old female Cocker Spaniel looking for a male dog from the same breed.I would love to host the male dog at my home, and I will be responsible for feeding and taking care of him same as Wezy during his stay,would also appreciate if you can mention what type of food he preferes🥰');
 var pets = [
+  
   Pet(
     owner: owner,
     name: 'Wezy',
@@ -55,6 +62,9 @@ var pets = [
     sex: 'Female',
     color: 'Golden',
     id: 12345,
+    breed: 'a',
+    category: 'dog',
+    location: 'sf',
   ),
   Pet(
     owner: owner,
@@ -65,6 +75,9 @@ var pets = [
     sex: 'Female',
     color: 'Black',
     id: 98765,
+    breed: 'a',
+    category: 'dog',
+    location: 'sf',
   ),
 ];
 void main() {

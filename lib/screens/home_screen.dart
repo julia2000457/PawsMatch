@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pet_adoption_ui/firebase/chat_messages%5B1%5D.dart';
 import 'package:flutter_pet_adoption_ui/firebase/pet_details.dart';
 import 'package:flutter_pet_adoption_ui/models/pet_model.dart';
 import 'package:flutter_pet_adoption_ui/screens/adopt_pet_screen.dart';
@@ -43,6 +44,30 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Row(children: [
+          SizedBox(
+            width: 260,
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.message,
+              color: Colors.black,
+              size: 30.0,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatMessages(),
+                ),
+              );
+            },
+          ),
+        ]),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
