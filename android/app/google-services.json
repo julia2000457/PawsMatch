@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299539407647",
+    "project_id": "tett-2db7a",
+    "storage_bucket": "tett-2db7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299539407647:android:d45d6015c667b51411c62a",
+        "android_client_info": {
+          "package_name": "com.example.tett"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGTZYyUnx-qoZce8_Vv5d1KoETMZUInms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
